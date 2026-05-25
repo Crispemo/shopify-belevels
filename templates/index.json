@@ -1,0 +1,540 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "text-heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>La diferencia está en lo que no se ve.</h1>",
+            "type_preset": "h1",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "wrap": "pretty"
+          }
+        },
+        "text-sub": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Suplementos formulados con ingredientes europeos certificados y dosificación clínica exacta.</p>",
+            "type_preset": "rte",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "wrap": "pretty"
+          }
+        },
+        "btn-discover": {
+          "type": "button",
+          "settings": {
+            "label": "Descubrir productos",
+            "link": "/collections/all",
+            "style_class": "button-primary",
+            "width": "fit-content"
+          }
+        }
+      },
+      "block_order": ["text-heading", "text-sub", "btn-discover"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "media_type_1": "image",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "large",
+        "toggle_overlay": false,
+        "overlay_color": "#12121200",
+        "overlay_style": "solid",
+        "padding-block-start": 80,
+        "padding-block-end": 72
+      }
+    },
+    "trust-bar": {
+      "type": "marquee",
+      "blocks": {
+        "ann-1": {
+          "type": "text",
+          "settings": {
+            "text": "Fabricado en Europa · Fórmula clínica · Sin dióxido de titanio · Nutricionistas propios · +4.800 valoraciones",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "var(--font-size--h5)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          }
+        }
+      },
+      "block_order": ["ann-1"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "movement_direction": "normal",
+        "gap_between_elements": 48,
+        "padding-block-start": 20,
+        "padding-block-end": 20
+      }
+    },
+    "benefits": {
+      "type": "vitalys-benefits",
+      "blocks": {
+        "b-1": {
+          "type": "benefit_item",
+          "settings": {
+            "icon": "europe",
+            "title": "Ingredientes europeos certificados",
+            "body": "Trazabilidad completa. Sin materias primas de origen dudoso."
+          }
+        },
+        "b-2": {
+          "type": "benefit_item",
+          "settings": {
+            "icon": "microscope",
+            "title": "Dosificación clínica exacta",
+            "body": "Las cantidades que usan los estudios, no las que abaratan el producto."
+          }
+        },
+        "b-3": {
+          "type": "benefit_item",
+          "settings": {
+            "icon": "shield",
+            "title": "Sin rellenos innecesarios",
+            "body": "Sin dióxido de titanio ni excipientes que no aportan nada."
+          }
+        }
+      },
+      "block_order": ["b-1", "b-2", "b-3"],
+      "settings": {
+        "heading": "Formulados para quienes se lo toman en serio",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 72,
+        "padding-block-end": 72
+      }
+    },
+    "bestsellers": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "bestsellers-title": {
+              "type": "_product-list-text",
+              "settings": {
+                "text": "<h2>Los más vendidos</h2>",
+                "type_preset": "h2",
+                "width": "fit-content",
+                "alignment": "left",
+                "wrap": "pretty"
+              }
+            }
+          },
+          "block_order": ["bestsellers-title"]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "border": "none",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product-card-gallery": {
+              "type": "_product-card-gallery",
+              "static": true,
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_radius": 0
+              }
+            },
+            "product-title": {
+              "type": "product-title",
+              "settings": {
+                "width": "100%",
+                "alignment": "left",
+                "type_preset": "rte",
+                "padding-block-start": 8,
+                "padding-block-end": 0
+              }
+            },
+            "price": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left"
+              }
+            },
+            "buy-btn": {
+              "type": "buy-buttons",
+              "settings": {
+                "show_dynamic_checkout": false,
+                "show_gift_card_recipient": false
+              }
+            }
+          },
+          "block_order": ["product-card-gallery", "product-title", "price", "buy-btn"]
+        }
+      },
+      "settings": {
+        "collection": "all",
+        "color_scheme": "scheme-1",
+        "layout_type": "grid",
+        "max_products": 3,
+        "columns": 3,
+        "mobile_columns": "1",
+        "columns_gap": 24,
+        "rows_gap": 32,
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 32,
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "pillars": {
+      "type": "section",
+      "blocks": {
+        "heading-block": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Por qué VITALYS</h2>",
+            "type_preset": "h2",
+            "width": "fill",
+            "alignment": "center",
+            "wrap": "pretty"
+          }
+        },
+        "col-1": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "col-1-title": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Ingredientes europeos certificados</h4>",
+                "type_preset": "h4",
+                "width": "fill",
+                "alignment": "left",
+                "wrap": "pretty"
+              }
+            },
+            "col-1-text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Trazabilidad completa. Sin materias primas de origen dudoso.</p>",
+                "type_preset": "rte",
+                "width": "fill",
+                "alignment": "left"
+              }
+            }
+          },
+          "block_order": ["col-1-title", "col-1-text"]
+        },
+        "col-2": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "col-2-title": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Dosificación clínica exacta</h4>",
+                "type_preset": "h4",
+                "width": "fill",
+                "alignment": "left"
+              }
+            },
+            "col-2-text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Las cantidades que usan los estudios, no las que abaratan el producto.</p>",
+                "type_preset": "rte",
+                "width": "fill",
+                "alignment": "left"
+              }
+            }
+          },
+          "block_order": ["col-2-title", "col-2-text"]
+        },
+        "col-3": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "col-3-title": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Fórmulas propias</h4>",
+                "type_preset": "h4",
+                "width": "fill",
+                "alignment": "left"
+              }
+            },
+            "col-3-text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Sin copiar. Sin fórmulas propietarias que oculten cantidades.</p>",
+                "type_preset": "rte",
+                "width": "fill",
+                "alignment": "left"
+              }
+            }
+          },
+          "block_order": ["col-3-title", "col-3-text"]
+        },
+        "col-4": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 12,
+            "width": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 24,
+            "padding-block-end": 24,
+            "padding-inline-start": 16,
+            "padding-inline-end": 16
+          },
+          "blocks": {
+            "col-4-title": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Packaging sin rellenos</h4>",
+                "type_preset": "h4",
+                "width": "fill",
+                "alignment": "left"
+              }
+            },
+            "col-4-text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Sin dióxido de titanio ni rellenos innecesarios.</p>",
+                "type_preset": "rte",
+                "width": "fill",
+                "alignment": "left"
+              }
+            }
+          },
+          "block_order": ["col-4-title", "col-4-text"]
+        }
+      },
+      "block_order": ["heading-block", "col-1", "col-2", "col-3", "col-4"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-start",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "gap": 24,
+        "section_width": "page-width",
+        "section_height": "",
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "testimonial": {
+      "type": "vitalys-testimonial",
+      "settings": {
+        "rating": 5,
+        "quote": "Llevo tres meses tomando el magnesio y la diferencia en la calidad del sueño es real. Sin efectos secundarios, sin promesas vacías. Por fin una marca que da lo que dice.",
+        "author_name": "María G.",
+        "author_role": "Cliente verificada · Madrid",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "faq": {
+      "type": "section",
+      "blocks": {
+        "faq-heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Preguntas frecuentes</h2>",
+            "type_preset": "h2",
+            "width": "fill",
+            "alignment": "center",
+            "wrap": "pretty"
+          }
+        },
+        "faq-accordion": {
+          "type": "accordion",
+          "settings": {
+            "width": "fill",
+            "max_width": "normal",
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {
+            "faq-row-1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Qué diferencia a VITALYS de otras marcas?",
+                "heading_preset": "h5"
+              },
+              "blocks": {
+                "faq-row-1-body": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Publicamos dosis exactas de cada ingrediente. Sin fórmulas propietarias que oculten cantidades. Todos nuestros ingredientes tienen origen europeo certificado con trazabilidad completa.</p>",
+                    "type_preset": "rte",
+                    "width": "fill",
+                    "alignment": "left"
+                  }
+                }
+              },
+              "block_order": ["faq-row-1-body"]
+            },
+            "faq-row-2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Son aptos para veganos?",
+                "heading_preset": "h5"
+              },
+              "blocks": {
+                "faq-row-2-body": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Sí. Todos nuestros productos están formulados sin ingredientes de origen animal y son aptos para veganos.</p>",
+                    "type_preset": "rte",
+                    "width": "fill",
+                    "alignment": "left"
+                  }
+                }
+              },
+              "block_order": ["faq-row-2-body"]
+            },
+            "faq-row-3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Cuánto tiempo hasta notar efecto?",
+                "heading_preset": "h5"
+              },
+              "blocks": {
+                "faq-row-3-body": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Los resultados varían según el producto y la persona. Como guía general, espera entre 2 y 4 semanas de uso consistente para empezar a notar los efectos.</p>",
+                    "type_preset": "rte",
+                    "width": "fill",
+                    "alignment": "left"
+                  }
+                }
+              },
+              "block_order": ["faq-row-3-body"]
+            },
+            "faq-row-4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "¿Puedo combinar varios productos?",
+                "heading_preset": "h5"
+              },
+              "blocks": {
+                "faq-row-4-body": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>La mayoría de nuestros productos son compatibles entre sí. Consulta la sección de ingredientes de cada producto para verificar interacciones específicas, o escríbenos directamente.</p>",
+                    "type_preset": "rte",
+                    "width": "fill",
+                    "alignment": "left"
+                  }
+                }
+              },
+              "block_order": ["faq-row-4-body"]
+            }
+          },
+          "block_order": ["faq-row-1", "faq-row-2", "faq-row-3", "faq-row-4"]
+        }
+      },
+      "block_order": ["faq-heading", "faq-accordion"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "horizontal_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "padding-block-start": 72,
+        "padding-block-end": 72
+      }
+    }
+  },
+  "order": ["hero", "trust-bar", "benefits", "bestsellers", "pillars", "testimonial", "faq"]
+}

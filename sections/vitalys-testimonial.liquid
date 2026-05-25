@@ -1,0 +1,156 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} vitalys-testimonial color-{{ section.settings.color_scheme }}"
+  style="{%- render 'spacing-style', settings: section.settings %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="vitalys-testimonial__inner">
+    {%- assign rating = section.settings.rating | plus: 0 -%}
+
+    {%- if section.settings.photo != blank -%}
+      <div class="vitalys-testimonial__photo">
+        {{
+          section.settings.photo
+          | image_url: width: 160
+          | image_tag:
+            loading: 'lazy',
+            width: 80,
+            height: 80,
+            class: 'vitalys-testimonial__avatar',
+            alt: section.settings.author_name
+        }}
+      </div>
+    {%- else -%}
+      <div class="vitalys-testimonial__photo vitalys-testimonial__photo--placeholder" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+      </div>
+    {%- endif -%}
+
+    <div class="vitalys-testimonial__content">
+      {%- if rating > 0 -%}
+        <div class="vitalys-testimonial__stars" aria-label="{{ rating }} de 5 estrellas" role="img">
+          {%- for i in (1..5) -%}
+            {%- if i <= rating -%}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            {%- else -%}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.quote != blank -%}
+        <blockquote class="vitalys-testimonial__quote">
+          {{ section.settings.quote | escape }}
+        </blockquote>
+      {%- endif -%}
+
+      <footer class="vitalys-testimonial__author">
+        {%- if section.settings.author_name != blank -%}
+          <span class="vitalys-testimonial__author-name">{{ section.settings.author_name | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.author_role != blank -%}
+          <span class="vitalys-testimonial__author-role">{{ section.settings.author_role | escape }}</span>
+        {%- endif -%}
+      </footer>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "VITALYS Testimonial",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Review content"
+    },
+    {
+      "type": "image_picker",
+      "id": "photo",
+      "label": "Author photo"
+    },
+    {
+      "type": "range",
+      "id": "rating",
+      "label": "Star rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Review text",
+      "default": "Llevo tres meses tomando el magnesio y la diferencia en la calidad del sueño es real. Sin efectos secundarios, sin promesas vacías. Por fin una marca que da lo que dice."
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "label": "Author name",
+      "default": "María G."
+    },
+    {
+      "type": "text",
+      "id": "author_role",
+      "label": "Role / context",
+      "default": "Cliente verificada · Madrid"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "VITALYS Testimonial"
+    }
+  ]
+}
+{% endschema %}

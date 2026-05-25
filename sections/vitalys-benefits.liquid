@@ -1,0 +1,182 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} vitalys-benefits color-{{ section.settings.color_scheme }}"
+  style="{%- render 'spacing-style', settings: section.settings %}"
+  data-section-id="{{ section.id }}"
+>
+  {%- if section.settings.heading != blank -%}
+    <div class="vitalys-benefits__header">
+      <h2 class="vitalys-benefits__heading">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="vitalys-benefits__subheading">{{ section.settings.subheading | escape }}</p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="vitalys-benefits__grid">
+    {%- for block in section.blocks -%}
+      <div class="vitalys-benefits__item" {{ block.shopify_attributes }}>
+        <div class="vitalys-benefits__icon" aria-hidden="true">
+          {%- case block.settings.icon -%}
+            {%- when 'leaf' -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            {%- when 'microscope' -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+            {%- when 'shield' -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            {%- when 'check' -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            {%- when 'flask' -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5h0c-1.4 0-2.5-1.1-2.5-2.5V2"/><path d="M8.5 2h7"/><path d="M14.5 16h-5"/></svg>
+            {%- when 'star' -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            {%- when 'europe' -%}
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          {%- endcase -%}
+        </div>
+        {%- if block.settings.title != blank -%}
+          <h3 class="vitalys-benefits__item-title">{{ block.settings.title | escape }}</h3>
+        {%- endif -%}
+        {%- if block.settings.body != blank -%}
+          <p class="vitalys-benefits__item-body">{{ block.settings.body | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "VITALYS Benefits",
+  "tag": "section",
+  "class": "section-wrapper",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Por qué elegirnos"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": ""
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_item",
+      "name": "Benefit item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Hoja (Leaf)" },
+            { "value": "microscope", "label": "Microscopio" },
+            { "value": "shield", "label": "Escudo (Shield)" },
+            { "value": "check", "label": "Check" },
+            { "value": "flask", "label": "Tubo de ensayo" },
+            { "value": "star", "label": "Estrella" },
+            { "value": "europe", "label": "Globo (Europa)" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Ingrediente europeo certificado"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Description",
+          "default": "Trazabilidad completa desde el origen hasta la cápsula."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VITALYS Benefits",
+      "settings": {
+        "heading": "Formulados para quienes se lo toman en serio",
+        "color_scheme": "scheme-1"
+      },
+      "blocks": [
+        {
+          "type": "benefit_item",
+          "settings": {
+            "icon": "europe",
+            "title": "Ingredientes europeos certificados",
+            "body": "Trazabilidad completa. Sin materias primas de origen dudoso."
+          }
+        },
+        {
+          "type": "benefit_item",
+          "settings": {
+            "icon": "microscope",
+            "title": "Dosificación clínica exacta",
+            "body": "Las cantidades que usan los estudios, no las que abaratan el producto."
+          }
+        },
+        {
+          "type": "benefit_item",
+          "settings": {
+            "icon": "shield",
+            "title": "Sin rellenos innecesarios",
+            "body": "Sin dióxido de titanio ni excipientes que no aportan nada."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

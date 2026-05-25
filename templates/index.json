@@ -456,12 +456,13 @@
     "formula": {
       "type": "vitalys-formula",
       "settings": {
+        "image": "shopify://shop_images/Gemini_Generated_Image_j183sij183sij183.png",
         "heading": "Cada miligramo tiene un motivo.",
         "ingredient_name": "Magnesio bisglicinato · 300 mg por dosis",
         "ingredient_dose": "Absorción 4× superior al óxido de magnesio",
         "ingredient_description": "La forma química importa. El bisglicinato atraviesa la barrera intestinal de forma eficiente. El óxido no.",
         "cta_label": "Ver todos los ingredientes",
-        "cta_link": "",
+        "cta_link": "shopify://products/vitalys-mag",
         "color_scheme": "scheme-5",
         "section_width": "page-width",
         "padding-block-start": 96,

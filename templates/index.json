@@ -240,12 +240,19 @@
                 "width": "100%",
                 "alignment": "left"
               }
+            },
+            "product-tags": {
+              "type": "custom-liquid",
+              "settings": {
+                "custom_liquid": "{%- if closest.product.tags.size > 0 -%}<div class=\"vitalys-product-tags\">{%- for tag in closest.product.tags limit: 4 -%}<span class=\"vitalys-product-tag\">{{ tag }}</span>{%- endfor -%}</div>{%- endif -%}"
+              }
             }
           },
           "block_order": [
             "product-card-gallery",
             "product-title",
-            "price"
+            "price",
+            "product-tags"
           ]
         }
       },

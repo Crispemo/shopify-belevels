@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -27,7 +28,7 @@
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
             "media_fit": "contain",
-            "media_radius": 0,
+            "media_radius": 4,
             "extend_media": false,
             "zoom": true,
             "video_loop": false,
@@ -49,7 +50,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 28,
+            "gap": 20,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "scheme-1",
@@ -66,63 +67,32 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "group_icgrde": {
+            "product-header": {
               "type": "group",
-              "name": "Header",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
-                "vertical_alignment": "center",
-                "align_baseline": false,
                 "horizontal_alignment_flex_direction_column": "flex-start",
-                "vertical_alignment_flex_direction_column": "center",
-                "gap": 12,
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 8,
                 "width": "fill",
-                "custom_width": 100,
-                "width_mobile": "fill",
-                "custom_width_mobile": 100,
                 "height": "fit",
-                "custom_height": 100,
                 "inherit_color_scheme": true,
-                "color_scheme": "",
-                "background_media": "none",
-                "video_position": "cover",
-                "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_xrnftG": {
+                "product-title": {
                   "type": "text",
-                  "name": "Product title",
                   "settings": {
                     "text": "<h1>{{ closest.product.title }}</h1>",
                     "width": "100%",
-                    "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "h3",
-                    "font": "var(--font-primary--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
                     "wrap": "pretty",
-                    "color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -130,7 +100,7 @@
                   },
                   "blocks": {}
                 },
-                "price_tVjtKg": {
+                "product-price": {
                   "type": "price",
                   "settings": {
                     "show_sale_price_first": true,
@@ -139,38 +109,39 @@
                     "type_preset": "paragraph",
                     "width": "100%",
                     "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "color": "var(--color-foreground)",
-                    "padding-block-start": 4,
+                    "font_size": "1.1rem",
+                    "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "product-tags-pills": {
+                  "type": "custom-liquid",
+                  "settings": {
+                    "custom_liquid": "{%- if product.tags.size > 0 -%}<div class=\"vitalys-product-tags product-details-tags\">{%- for tag in product.tags limit:6 -%}<span class=\"vitalys-product-tag\">{{ tag }}</span>{%- endfor -%}</div>{%- endif -%}"
+                  }
                 }
               },
               "block_order": [
-                "text_xrnftG",
-                "price_tVjtKg"
+                "product-title",
+                "product-price",
+                "product-tags-pills"
               ]
             },
-            "divider_VJhene": {
+            "divider-1": {
               "type": "_divider",
-              "name": "t:names.divider",
               "settings": {
                 "thickness": 1,
                 "corner_radius": "square",
                 "width_percent": 100,
-                "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-start": 4,
+                "padding-block-end": 4
               },
               "blocks": {}
             },
-            "variant_picker_R3rGDr": {
+            "variant-picker": {
               "type": "variant-picker",
               "settings": {
                 "variant_style": "buttons",
@@ -183,7 +154,7 @@
               },
               "blocks": {}
             },
-            "buy_buttons_eYQEYi": {
+            "buy-buttons": {
               "type": "buy-buttons",
               "settings": {
                 "stacking": true,
@@ -217,26 +188,16 @@
               },
               "block_order": []
             },
-            "text_aEtTtq": {
+            "shipping-note": {
               "type": "text",
-              "name": "Product description",
               "settings": {
-                "text": "{{ closest.product.description }}",
+                "text": "<p>Envío gratis desde 50€ · Devolución gratuita 30 días · Fabricado en Europa</p>",
                 "width": "100%",
-                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
+                "font_size": "0.8rem",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 4,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -245,11 +206,11 @@
             }
           },
           "block_order": [
-            "group_icgrde",
-            "divider_VJhene",
-            "variant_picker_R3rGDr",
-            "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "product-header",
+            "divider-1",
+            "variant-picker",
+            "buy-buttons",
+            "shipping-note"
           ]
         }
       },
@@ -264,28 +225,242 @@
         "padding-block-end": 0
       }
     },
+    "product-info-accordion": {
+      "type": "section",
+      "blocks": {
+        "left-heading": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 16,
+            "width": "30%",
+            "custom_width": 30,
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "section-heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Lo importante, de un vistazo.</h2>",
+                "width": "100%",
+                "alignment": "left",
+                "type_preset": "h3",
+                "wrap": "pretty",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "section-heading"
+          ]
+        },
+        "right-accordion": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "flex-start",
+            "gap": 0,
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion-main": {
+              "type": "accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "type_preset": "h5",
+                "inherit_color_scheme": true,
+                "border": "none",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "row-descripcion": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Descripción"
+                  },
+                  "blocks": {
+                    "desc-text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "{{ closest.product.description }}",
+                        "width": "100%",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "padding-block-start": 0,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "desc-text"
+                  ]
+                },
+                "row-para-quien": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Para quién es"
+                  },
+                  "blocks": {
+                    "para-quien-text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Personaliza esta sección desde el editor del tema con el perfil específico del cliente para este producto.</p>",
+                        "width": "100%",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "padding-block-start": 0,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "para-quien-text"
+                  ]
+                },
+                "row-como-tomar": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Cómo se toma"
+                  },
+                  "blocks": {
+                    "como-tomar-text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Personaliza esta sección desde el editor del tema: cuándo tomarlo, dosis exacta y con qué combinarlo.</p>",
+                        "width": "100%",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "padding-block-start": 0,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "como-tomar-text"
+                  ]
+                },
+                "row-ingredientes": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Información nutricional"
+                  },
+                  "blocks": {
+                    "ingredientes-text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Añade la tabla de ingredientes desde el editor del tema: Ingrediente · Forma química · Dosis por toma · % VRN.</p>",
+                        "width": "100%",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "padding-block-start": 0,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "ingredientes-text"
+                  ]
+                },
+                "row-observaciones": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Observaciones"
+                  },
+                  "blocks": {
+                    "obs-text": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Conservar en lugar fresco y seco. Mantener fuera del alcance de los niños. No superar la dosis diaria recomendada. Los suplementos no sustituyen una dieta equilibrada.</p>",
+                        "width": "100%",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "padding-block-start": 0,
+                        "padding-block-end": 12,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "obs-text"
+                  ]
+                }
+              },
+              "block_order": [
+                "row-descripcion",
+                "row-para-quien",
+                "row-como-tomar",
+                "row-ingredientes",
+                "row-observaciones"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion-main"
+          ]
+        }
+      },
+      "block_order": [
+        "left-heading",
+        "right-accordion"
+      ],
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "gap": 48,
+        "section_width": "page-width",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    },
     "faq": {
       "type": "section",
       "blocks": {
         "faq_heading": {
           "type": "text",
-          "name": "FAQ heading",
           "settings": {
             "text": "<h2>Preguntas frecuentes</h2>",
             "width": "fit-content",
-            "max_width": "narrow",
             "alignment": "left",
             "type_preset": "h3",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
             "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -295,16 +470,12 @@
         },
         "faq_accordion": {
           "type": "accordion",
-          "name": "FAQ accordion",
           "settings": {
             "icon": "caret",
             "dividers": true,
             "type_preset": "h5",
             "inherit_color_scheme": true,
-            "color_scheme": "",
             "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
             "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -322,24 +493,19 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Todos nuestros productos están formulados sin ingredientes de origen animal y son aptos para veganos.</p>",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
                     "width": "100%",
-                    "max_width": "normal",
                     "alignment": "left",
+                    "type_preset": "rte",
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   }
                 }
               },
-              "block_order": ["faq_text_1"]
+              "block_order": [
+                "faq_text_1"
+              ]
             },
             "faq_row_2": {
               "type": "_accordion-row",
@@ -351,24 +517,19 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>La mayoría de nuestros productos son compatibles entre sí. Consulta la sección de ingredientes para verificar interacciones específicas.</p>",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
                     "width": "100%",
-                    "max_width": "normal",
                     "alignment": "left",
+                    "type_preset": "rte",
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   }
                 }
               },
-              "block_order": ["faq_text_2"]
+              "block_order": [
+                "faq_text_2"
+              ]
             },
             "faq_row_3": {
               "type": "_accordion-row",
@@ -380,24 +541,19 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Los resultados varían según el producto y la persona. Como guía general, espera entre 2 y 4 semanas de uso consistente.</p>",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
                     "width": "100%",
-                    "max_width": "normal",
                     "alignment": "left",
+                    "type_preset": "rte",
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   }
                 }
               },
-              "block_order": ["faq_text_3"]
+              "block_order": [
+                "faq_text_3"
+              ]
             },
             "faq_row_4": {
               "type": "_accordion-row",
@@ -409,24 +565,19 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>Todos los alérgenos están declarados en la etiqueta. Consulta la tabla de ingredientes de cada producto.</p>",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
                     "width": "100%",
-                    "max_width": "normal",
                     "alignment": "left",
+                    "type_preset": "rte",
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   }
                 }
               },
-              "block_order": ["faq_text_4"]
+              "block_order": [
+                "faq_text_4"
+              ]
             },
             "faq_row_5": {
               "type": "_accordion-row",
@@ -438,48 +589,42 @@
                   "type": "text",
                   "settings": {
                     "text": "<p>No hay problema. Los suplementos funcionan con el uso continuado — un día sin tomar no anula el efecto acumulado.</p>",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
                     "width": "100%",
-                    "max_width": "normal",
                     "alignment": "left",
+                    "type_preset": "rte",
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 12,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   }
                 }
               },
-              "block_order": ["faq_text_5"]
+              "block_order": [
+                "faq_text_5"
+              ]
             }
           },
-          "block_order": ["faq_row_1", "faq_row_2", "faq_row_3", "faq_row_4", "faq_row_5"]
+          "block_order": [
+            "faq_row_1",
+            "faq_row_2",
+            "faq_row_3",
+            "faq_row_4",
+            "faq_row_5"
+          ]
         }
       },
-      "block_order": ["faq_heading", "faq_accordion"],
+      "block_order": [
+        "faq_heading",
+        "faq_accordion"
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
         "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
         "gap": 32,
         "section_width": "page-width",
-        "section_height": "",
-        "color_scheme": "scheme-2",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
+        "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
       }
@@ -489,23 +634,12 @@
       "blocks": {
         "text_cbcgyb": {
           "type": "text",
-          "name": "t:names.header",
           "settings": {
             "text": "<h3>Combina bien con…</h3>",
             "width": "fit-content",
-            "max_width": "normal",
             "alignment": "left",
             "type_preset": "h4",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
             "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -515,31 +649,24 @@
         },
         "static-product-card": {
           "type": "_product-card",
-          "name": "t:names.product_card",
           "static": true,
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": true,
-            "color_scheme": "",
             "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
+            "border_radius": 4,
             "padding-block-start": 0,
             "padding-block-end": 8,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_card_gallery_DNizbJ": {
+            "product_card_gallery": {
               "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
               "settings": {
                 "image_ratio": "adapt",
                 "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
+                "border_radius": 4,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -547,58 +674,42 @@
               },
               "blocks": {}
             },
-            "product_title_M7MJkb": {
+            "product_title": {
               "type": "product-title",
-              "name": "t:names.product_title",
               "settings": {
                 "width": "100%",
-                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
-                "font": "var(--font-body--family)",
                 "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
+                "padding-block-start": 8,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
               "blocks": {}
             },
-            "price_gLWgA6": {
+            "price": {
               "type": "price",
               "settings": {
                 "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
                 "type_preset": "h6",
                 "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "alignment": "left"
               },
               "blocks": {}
+            },
+            "rec-tags": {
+              "type": "custom-liquid",
+              "settings": {
+                "custom_liquid": "{%- if closest.product.tags.size > 0 -%}<div class=\"vitalys-product-tags\">{%- for tag in closest.product.tags limit:3 -%}<span class=\"vitalys-product-tag\">{{ tag }}</span>{%- endfor -%}</div>{%- endif -%}"
+              }
             }
           },
           "block_order": [
-            "product_card_gallery_DNizbJ",
-            "product_title_M7MJkb",
-            "price_gLWgA6"
+            "product_card_gallery",
+            "product_title",
+            "price",
+            "rec-tags"
           ]
         }
       },
@@ -628,6 +739,7 @@
   },
   "order": [
     "main",
+    "product-info-accordion",
     "faq",
     "recommendations"
   ]

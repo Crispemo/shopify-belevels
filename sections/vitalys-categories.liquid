@@ -10,7 +10,7 @@
     </div>
   {%- endif -%}
 
-  <div class="vitalys-categories__grid">
+  <div class="vitalys-categories__scroll">
     {%- for block in section.blocks -%}
       <a
         class="vitalys-categories__card"
@@ -21,22 +21,20 @@
           {%- if block.settings.image != blank -%}
             {{
               block.settings.image
-              | image_url: width: 600
+              | image_url: width: 320
               | image_tag:
                 loading: 'lazy',
                 class: 'vitalys-categories__card-img',
                 alt: block.settings.title | escape
             }}
           {%- else -%}
-            <div class="vitalys-categories__card-placeholder" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-            </div>
+            <div class="vitalys-categories__card-placeholder" aria-hidden="true"></div>
           {%- endif -%}
-          <div class="vitalys-categories__card-overlay" aria-hidden="true"></div>
+          <div class="vitalys-categories__card-gradient" aria-hidden="true"></div>
+          {%- if block.settings.title != blank -%}
+            <span class="vitalys-categories__card-label">{{ block.settings.title | escape }}</span>
+          {%- endif -%}
         </div>
-        {%- if block.settings.title != blank -%}
-          <span class="vitalys-categories__card-label">{{ block.settings.title | escape }}</span>
-        {%- endif -%}
       </a>
     {%- endfor -%}
   </div>

@@ -572,3 +572,188 @@ h1, h2, .h1, .h2 {
     padding-inline: 20px;
   }
 }
+
+/* ─── Quiz ──────────────────────────────────────────────────────── */
+
+.vitalys-quiz {
+  padding-block-start: var(--padding-block-start, 80px);
+  padding-block-end: var(--padding-block-end, 80px);
+  padding-inline: var(--page-padding, 48px);
+}
+
+.vitalys-quiz__inner {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.vitalys-quiz__progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-block-end: 48px;
+}
+
+.vitalys-quiz__progress-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(28, 28, 26, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.vitalys-quiz__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--vitalys-gold);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.vitalys-quiz__progress-label {
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vitalys-carbon);
+  opacity: 0.45;
+  white-space: nowrap;
+}
+
+.vitalys-quiz__step {
+  animation: quiz-fade-in 0.3s ease;
+}
+
+.vitalys-quiz__step--hidden {
+  display: none;
+}
+
+@keyframes quiz-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.vitalys-quiz__question {
+  font-family: var(--font-heading-family);
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--vitalys-carbon);
+  margin: 0 0 32px;
+  line-height: 1.2;
+}
+
+.vitalys-quiz__options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vitalys-quiz__option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1.5px solid rgba(28, 28, 26, 0.2);
+  border-radius: 4px;
+  padding: 16px 20px;
+  font-family: var(--font-body-family);
+  font-size: 15px;
+  color: var(--vitalys-carbon);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.vitalys-quiz__option:hover {
+  border-color: var(--vitalys-carbon);
+}
+
+.vitalys-quiz__option--selected {
+  border-color: var(--vitalys-gold);
+  background: rgba(200, 169, 110, 0.08);
+}
+
+/* Result */
+
+.vitalys-quiz__result {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vitalys-quiz__result-label {
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vitalys-gold);
+  margin: 0;
+}
+
+.vitalys-quiz__result-product {
+  font-family: var(--font-heading-family);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--vitalys-carbon);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.vitalys-quiz__result-reason {
+  font-family: var(--font-body-family);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--vitalys-carbon);
+  opacity: 0.7;
+  margin: 0;
+  max-width: 480px;
+}
+
+.vitalys-quiz__result-cta {
+  display: inline-block;
+  margin-block-start: 8px;
+  font-family: var(--font-body-family);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vitalys-carbon);
+  text-decoration: none;
+  border: 1.5px solid var(--vitalys-carbon);
+  border-radius: 4px;
+  padding: 13px 36px;
+  transition: background 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+
+.vitalys-quiz__result-cta:hover {
+  background: var(--vitalys-carbon);
+  color: var(--vitalys-cream);
+}
+
+.vitalys-quiz__restart {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body-family);
+  font-size: 12px;
+  color: var(--vitalys-carbon);
+  opacity: 0.4;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  align-self: flex-start;
+  transition: opacity 0.2s;
+}
+
+.vitalys-quiz__restart:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 749px) {
+  .vitalys-quiz {
+    padding-inline: 20px;
+  }
+}

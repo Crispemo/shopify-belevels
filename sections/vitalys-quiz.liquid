@@ -1,0 +1,196 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section.settings.section_width }} vitalys-quiz color-{{ section.settings.color_scheme }}"
+  style="{%- render 'spacing-style', settings: section.settings %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="vitalys-quiz__inner">
+
+    <!-- Progress -->
+    <div class="vitalys-quiz__progress" id="quiz-progress" aria-hidden="true">
+      <div class="vitalys-quiz__progress-bar">
+        <div class="vitalys-quiz__progress-fill" id="quiz-progress-fill"></div>
+      </div>
+      <span class="vitalys-quiz__progress-label" id="quiz-progress-label">Pregunta 1 de 3</span>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="vitalys-quiz__step" id="quiz-step-1" data-step="1">
+      <h2 class="vitalys-quiz__question">¿Cuál es tu objetivo principal?</h2>
+      <div class="vitalys-quiz__options">
+        <button class="vitalys-quiz__option" data-value="sleep" onclick="quizSelect(1, 'sleep', this)">Dormir mejor</button>
+        <button class="vitalys-quiz__option" data-value="energy" onclick="quizSelect(1, 'energy', this)">Más energía y foco</button>
+        <button class="vitalys-quiz__option" data-value="performance" onclick="quizSelect(1, 'performance', this)">Mejorar el rendimiento</button>
+        <button class="vitalys-quiz__option" data-value="digestion" onclick="quizSelect(1, 'digestion', this)">Digestión saludable</button>
+        <button class="vitalys-quiz__option" data-value="stress" onclick="quizSelect(1, 'stress', this)">Reducir el estrés</button>
+        <button class="vitalys-quiz__option" data-value="beauty" onclick="quizSelect(1, 'beauty', this)">Piel y cabello</button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="vitalys-quiz__step vitalys-quiz__step--hidden" id="quiz-step-2" data-step="2">
+      <h2 class="vitalys-quiz__question">¿Cuándo lo notas más?</h2>
+      <div class="vitalys-quiz__options">
+        <button class="vitalys-quiz__option" data-value="morning" onclick="quizSelect(2, 'morning', this)">Al despertar</button>
+        <button class="vitalys-quiz__option" data-value="day" onclick="quizSelect(2, 'day', this)">Durante la jornada</button>
+        <button class="vitalys-quiz__option" data-value="night" onclick="quizSelect(2, 'night', this)">Por la noche</button>
+        <button class="vitalys-quiz__option" data-value="always" onclick="quizSelect(2, 'always', this)">Continuamente</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="vitalys-quiz__step vitalys-quiz__step--hidden" id="quiz-step-3" data-step="3">
+      <h2 class="vitalys-quiz__question">¿Cómo describes tu ritmo de vida?</h2>
+      <div class="vitalys-quiz__options">
+        <button class="vitalys-quiz__option" data-value="active" onclick="quizSelect(3, 'active', this)">Activo y exigente</button>
+        <button class="vitalys-quiz__option" data-value="sedentary" onclick="quizSelect(3, 'sedentary', this)">Sedentario o con poco descanso</button>
+        <button class="vitalys-quiz__option" data-value="stressed" onclick="quizSelect(3, 'stressed', this)">Bajo mucho estrés</button>
+        <button class="vitalys-quiz__option" data-value="balanced" onclick="quizSelect(3, 'balanced', this)">Equilibrado, quiero mantenerlo</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div class="vitalys-quiz__step vitalys-quiz__step--hidden" id="quiz-result">
+      <div class="vitalys-quiz__result">
+        <p class="vitalys-quiz__result-label">Tu recomendación</p>
+        <h2 class="vitalys-quiz__result-product" id="quiz-result-product"></h2>
+        <p class="vitalys-quiz__result-reason" id="quiz-result-reason"></p>
+        <a class="vitalys-quiz__result-cta" id="quiz-result-cta" href="/collections/all">Ver productos →</a>
+        <button class="vitalys-quiz__restart" onclick="quizRestart()">Volver a empezar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  var answers = {};
+
+  var results = {
+    sleep:       { product: 'Magnesio Bisglicinato',    reason: 'Forma quelada de alta absorción. Favorece la relajación muscular y la conciliación del sueño sin dependencia.', link: '/collections/all' },
+    energy:      { product: 'Complejo B + Hierro',       reason: 'Las vitaminas del grupo B intervienen en la síntesis de energía celular. El hierro bisiglicinato evita la fatiga sin irritar el estómago.', link: '/collections/all' },
+    performance: { product: 'Creatina + Vitamina D',     reason: 'Creatina monohidrato con evidencia sólida en fuerza y recuperación. Vitamina D para función muscular y sistema inmune.', link: '/collections/all' },
+    digestion:   { product: 'Probiótico Multiestirpe',   reason: 'Combinación de cepas con estudios clínicos en microbiota intestinal. Sin almidones ni excipientes que alteren el equilibrio.', link: '/collections/all' },
+    stress:      { product: 'Ashwagandha KSM-66®',       reason: 'Extracto estandarizado al 5% de withanólidos. El único con ensayos en humanos para cortisol y estrés percibido.', link: '/collections/all' },
+    beauty:      { product: 'Colágeno + Vitamina C',     reason: 'Colágeno hidrolizado con vitamina C que actúa como cofactor en la síntesis de tejido conectivo. Dosis documentada en estudios.', link: '/collections/all' }
+  };
+
+  window.quizSelect = function(step, value, el) {
+    answers['q' + step] = value;
+
+    var opts = el.closest('.vitalys-quiz__options').querySelectorAll('.vitalys-quiz__option');
+    opts.forEach(function(o) { o.classList.remove('vitalys-quiz__option--selected'); });
+    el.classList.add('vitalys-quiz__option--selected');
+
+    setTimeout(function() {
+      if (step < 3) {
+        showStep(step + 1);
+      } else {
+        showResult();
+      }
+    }, 260);
+  };
+
+  function showStep(n) {
+    document.querySelectorAll('.vitalys-quiz__step').forEach(function(s) {
+      s.classList.add('vitalys-quiz__step--hidden');
+    });
+    var next = document.getElementById('quiz-step-' + n);
+    if (next) next.classList.remove('vitalys-quiz__step--hidden');
+
+    var fill = document.getElementById('quiz-progress-fill');
+    var label = document.getElementById('quiz-progress-label');
+    if (fill) fill.style.width = ((n - 1) / 3 * 100) + '%';
+    if (label) label.textContent = 'Pregunta ' + n + ' de 3';
+  }
+
+  function showResult() {
+    var goal = answers.q1 || 'sleep';
+    var r = results[goal];
+
+    document.getElementById('quiz-result-product').textContent = r.product;
+    document.getElementById('quiz-result-reason').textContent = r.reason;
+    document.getElementById('quiz-result-cta').href = r.link;
+
+    document.querySelectorAll('.vitalys-quiz__step').forEach(function(s) {
+      s.classList.add('vitalys-quiz__step--hidden');
+    });
+    document.getElementById('quiz-result').classList.remove('vitalys-quiz__step--hidden');
+
+    var fill = document.getElementById('quiz-progress-fill');
+    var label = document.getElementById('quiz-progress-label');
+    if (fill) fill.style.width = '100%';
+    if (label) label.textContent = 'Completado';
+  }
+
+  window.quizRestart = function() {
+    answers = {};
+    document.querySelectorAll('.vitalys-quiz__option').forEach(function(o) {
+      o.classList.remove('vitalys-quiz__option--selected');
+    });
+    showStep(1);
+  };
+})();
+</script>
+
+{% schema %}
+{
+  "name": "VITALYS Quiz",
+  "tag": "section",
+  "class": "section-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "VITALYS Quiz",
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
+    }
+  ]
+}
+{% endschema %}

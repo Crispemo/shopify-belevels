@@ -321,7 +321,7 @@
                 "faq_text_1": {
                   "type": "text",
                   "settings": {
-                    "text": "Todos nuestros productos están formulados sin ingredientes de origen animal y son aptos para veganos.",
+                    "text": "<p>Todos nuestros productos están formulados sin ingredientes de origen animal y son aptos para veganos.</p>",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "",
@@ -350,7 +350,7 @@
                 "faq_text_2": {
                   "type": "text",
                   "settings": {
-                    "text": "La mayoría de nuestros productos son compatibles entre sí. Consulta la sección de ingredientes para verificar interacciones específicas.",
+                    "text": "<p>La mayoría de nuestros productos son compatibles entre sí. Consulta la sección de ingredientes para verificar interacciones específicas.</p>",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "",
@@ -379,7 +379,7 @@
                 "faq_text_3": {
                   "type": "text",
                   "settings": {
-                    "text": "Los resultados varían según el producto y la persona. Como guía general, espera entre 2 y 4 semanas de uso consistente.",
+                    "text": "<p>Los resultados varían según el producto y la persona. Como guía general, espera entre 2 y 4 semanas de uso consistente.</p>",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "",
@@ -408,7 +408,7 @@
                 "faq_text_4": {
                   "type": "text",
                   "settings": {
-                    "text": "Todos los alérgenos están declarados en la etiqueta. Consulta la tabla de ingredientes de cada producto.",
+                    "text": "<p>Todos los alérgenos están declarados en la etiqueta. Consulta la tabla de ingredientes de cada producto.</p>",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "",
@@ -437,7 +437,7 @@
                 "faq_text_5": {
                   "type": "text",
                   "settings": {
-                    "text": "No hay problema. Los suplementos funcionan con el uso continuado — un día sin tomar no anula el efecto acumulado.",
+                    "text": "<p>No hay problema. Los suplementos funcionan con el uso continuado — un día sin tomar no anula el efecto acumulado.</p>",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
                     "font_size": "",

@@ -20,8 +20,22 @@
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "h1",
-            "wrap": "pretty"
-          }
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "text-sub": {
           "type": "text",
@@ -30,18 +44,37 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "rte",
-            "wrap": "pretty"
-          }
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "btn-discover": {
           "type": "button",
           "settings": {
             "label": "Descubrir productos →",
             "link": "/collections/all",
-            "style_class": "button-primary",
-            "width": "fit-content"
-          }
+            "open_in_new_tab": false,
+            "style_class": "button-secondary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -51,23 +84,32 @@
       ],
       "settings": {
         "media_type_1": "image",
+        "image_1": "shopify://shop_images/Gemini_Generated_Image_5qaw5q5qaw5q5qaw.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 24,
         "section_width": "page-width",
         "section_height": "large",
+        "section_height_custom": 50,
         "color_scheme": "scheme-1",
         "toggle_overlay": false,
-        "overlay_color": "#12121200",
+        "overlay_color": "rgba(0,0,0,0)",
         "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
         "padding-block-start": 80,
         "padding-block-end": 72
       }
@@ -80,14 +122,25 @@
           "settings": {
             "text": "<p>Fabricado en Europa · Fórmula clínica · Sin dióxido de titanio · Nutricionistas propios · +4.800 valoraciones</p>",
             "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-body--family)",
             "font_size": "var(--font-size--h5)",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
-            "wrap": "nowrap"
-          }
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -107,6 +160,7 @@
         "cat-1": {
           "type": "category_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_224zla224zla224z.png",
             "title": "Sueño y descanso",
             "link": "/collections/all"
           }
@@ -114,6 +168,7 @@
         "cat-2": {
           "type": "category_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_p7uk73p7uk73p7uk.png",
             "title": "Energía y foco",
             "link": "/collections/all"
           }
@@ -121,6 +176,7 @@
         "cat-3": {
           "type": "category_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_1cbb281cbb281cbb.png",
             "title": "Rendimiento",
             "link": "/collections/all"
           }
@@ -128,6 +184,7 @@
         "cat-4": {
           "type": "category_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_quqxmvquqxmvquqx.png",
             "title": "Salud digestiva",
             "link": "/collections/all"
           }
@@ -135,6 +192,7 @@
         "cat-5": {
           "type": "category_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_a6y0mja6y0mja6y0.png",
             "title": "Estrés",
             "link": "/collections/all"
           }
@@ -142,6 +200,7 @@
         "cat-6": {
           "type": "category_card",
           "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_8zkx1q8zkx1q8zkx.png",
             "title": "Piel y cabello",
             "link": "/collections/all"
           }
@@ -160,7 +219,7 @@
         "color_scheme": "scheme-1",
         "section_width": "page-width",
         "padding-block-start": 80,
-        "padding-block-end": 80
+        "padding-block-end": 40
       }
     },
     "bestsellers": {
@@ -171,14 +230,28 @@
           "static": true,
           "settings": {
             "content_direction": "row",
+            "vertical_on_mobile": true,
             "horizontal_alignment": "space-between",
             "vertical_alignment": "flex-end",
             "align_baseline": true,
             "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
             "height": "fit",
+            "custom_height": 100,
             "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -190,10 +263,25 @@
               "settings": {
                 "text": "<h2>Los más vendidos</h2>",
                 "width": "fit-content",
+                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "h2",
-                "wrap": "pretty"
-              }
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -206,7 +294,10 @@
           "settings": {
             "product_card_gap": 8,
             "inherit_color_scheme": true,
+            "color_scheme": "",
             "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
             "border_radius": 4,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -219,33 +310,68 @@
               "settings": {
                 "image_ratio": "adapt",
                 "border": "none",
-                "border_radius": 4
-              }
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 4,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             },
             "product-title": {
               "type": "product-title",
               "settings": {
                 "width": "100%",
+                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
                 "padding-block-start": 12,
-                "padding-block-end": 0
-              }
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             },
             "price": {
               "type": "price",
               "settings": {
                 "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
                 "type_preset": "h6",
                 "width": "100%",
-                "alignment": "left"
-              }
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
             },
             "product-tags": {
               "type": "custom-liquid",
               "settings": {
                 "custom_liquid": "{%- if closest.product.tags.size > 0 -%}<div class=\"vitalys-product-tags\">{%- for tag in closest.product.tags limit: 4 -%}<span class=\"vitalys-product-tag\">{{ tag }}</span>{%- endfor -%}</div>{%- endif -%}"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -259,16 +385,20 @@
       "settings": {
         "collection": "all",
         "layout_type": "grid",
+        "carousel_on_mobile": false,
         "max_products": 4,
         "columns": 4,
         "mobile_columns": "1",
+        "mobile_card_size": "60cqw",
         "columns_gap": 24,
-        "rows_gap": 32,
+        "rows_gap": 35,
+        "icons_style": "arrow",
+        "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
         "gap": 32,
         "color_scheme": "scheme-1",
-        "padding-block-start": 72,
+        "padding-block-start": 5,
         "padding-block-end": 72
       }
     },
@@ -316,6 +446,7 @@
       ],
       "settings": {
         "heading": "Por qué VITALYS",
+        "subheading": "",
         "color_scheme": "scheme-2",
         "section_width": "page-width",
         "padding-block-start": 80,
@@ -330,6 +461,7 @@
         "ingredient_dose": "Absorción 4× superior al óxido de magnesio",
         "ingredient_description": "La forma química importa. El bisglicinato atraviesa la barrera intestinal de forma eficiente. El óxido no.",
         "cta_label": "Ver todos los ingredientes",
+        "cta_link": "",
         "color_scheme": "scheme-5",
         "section_width": "page-width",
         "padding-block-start": 96,

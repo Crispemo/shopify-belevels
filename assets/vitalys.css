@@ -120,7 +120,7 @@ h1, h2, .h1, .h2 {
 
 .vitalys-benefits__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 48px 40px;
 }
 
@@ -268,4 +268,282 @@ h1, h2, .h1, .h2 {
   color: var(--vitalys-carbon);
   opacity: 0.55;
   display: block;
+}
+
+/* ─── Categories grid ───────────────────────────────────────────── */
+
+.vitalys-categories {
+  padding-block-start: var(--padding-block-start, 72px);
+  padding-block-end: var(--padding-block-end, 72px);
+  padding-inline: var(--page-padding, 48px);
+}
+
+.vitalys-categories__header {
+  text-align: center;
+  margin-block-end: 48px;
+}
+
+.vitalys-categories__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--vitalys-carbon);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.vitalys-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.vitalys-categories__card {
+  display: block;
+  text-decoration: none;
+  color: var(--vitalys-carbon);
+  overflow: hidden;
+}
+
+.vitalys-categories__card-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--vitalys-sand);
+  border-radius: 4px;
+}
+
+.vitalys-categories__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.vitalys-categories__card:hover .vitalys-categories__card-img {
+  transform: scale(1.04);
+}
+
+.vitalys-categories__card-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--vitalys-carbon);
+  opacity: 0.25;
+}
+
+.vitalys-categories__card-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--vitalys-carbon);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.vitalys-categories__card:hover .vitalys-categories__card-overlay {
+  opacity: 0.1;
+}
+
+.vitalys-categories__card-label {
+  display: block;
+  margin-block-start: 14px;
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--vitalys-carbon);
+  transition: opacity 0.2s;
+}
+
+.vitalys-categories__card:hover .vitalys-categories__card-label {
+  opacity: 0.65;
+}
+
+@media screen and (max-width: 989px) {
+  .vitalys-categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .vitalys-categories {
+    padding-inline: 20px;
+  }
+  .vitalys-categories__grid {
+    gap: 10px;
+  }
+}
+
+/* ─── Formula section ───────────────────────────────────────────── */
+
+.vitalys-formula {
+  padding-block-start: var(--padding-block-start, 96px);
+  padding-block-end: var(--padding-block-end, 96px);
+  padding-inline: var(--page-padding, 48px);
+}
+
+.vitalys-formula__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.vitalys-formula__image {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+.vitalys-formula__image-placeholder {
+  aspect-ratio: 4 / 5;
+  background: rgba(247, 245, 240, 0.06);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(247, 245, 240, 0.25);
+}
+
+.vitalys-formula__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--vitalys-cream);
+  margin: 0 0 40px;
+  line-height: 1.15;
+}
+
+.vitalys-formula__highlight {
+  border-left: 3px solid var(--vitalys-gold);
+  padding-left: 24px;
+  margin-block-end: 40px;
+}
+
+.vitalys-formula__ingredient-name {
+  font-family: var(--font-heading-family);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--vitalys-cream);
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.vitalys-formula__ingredient-dose {
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vitalys-gold);
+  letter-spacing: 0.02em;
+  margin: 0 0 12px;
+}
+
+.vitalys-formula__ingredient-body {
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--vitalys-cream);
+  opacity: 0.7;
+  margin: 0;
+}
+
+.vitalys-formula__cta {
+  display: inline-block;
+  font-family: var(--font-body-family);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vitalys-cream);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.vitalys-formula__cta:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 749px) {
+  .vitalys-formula {
+    padding-inline: 20px;
+  }
+  .vitalys-formula__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ─── Quiz CTA ──────────────────────────────────────────────────── */
+
+.vitalys-quiz-cta {
+  padding-block-start: var(--padding-block-start, 96px);
+  padding-block-end: var(--padding-block-end, 96px);
+  padding-inline: var(--page-padding, 48px);
+}
+
+.vitalys-quiz-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 580px;
+  margin-inline: auto;
+  gap: 20px;
+}
+
+.vitalys-quiz-cta__heading {
+  font-family: var(--font-heading-family);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  color: var(--vitalys-carbon);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.vitalys-quiz-cta__subheading {
+  font-family: var(--font-body-family);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--vitalys-carbon);
+  opacity: 0.65;
+  margin: 0;
+}
+
+.vitalys-quiz-cta__button {
+  display: inline-block;
+  margin-block-start: 8px;
+  font-family: var(--font-body-family);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vitalys-carbon);
+  text-decoration: none;
+  border: 1.5px solid var(--vitalys-carbon);
+  border-radius: 4px;
+  padding: 13px 36px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.vitalys-quiz-cta__button:hover {
+  background: var(--vitalys-carbon);
+  color: var(--vitalys-cream);
+}
+
+@media screen and (max-width: 749px) {
+  .vitalys-quiz-cta {
+    padding-inline: 20px;
+  }
 }

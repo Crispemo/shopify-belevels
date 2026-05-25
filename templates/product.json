@@ -195,7 +195,7 @@
             "buy-buttons": {
               "type": "buy-buttons",
               "settings": {
-                "stacking": true,
+                "stacking": false,
                 "show_pickup_availability": false,
                 "gift_card_form": true,
                 "padding-block-start": 0,
@@ -220,6 +220,7 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
@@ -256,7 +257,7 @@
               "type": "product-description",
               "name": "t:names.product_description",
               "settings": {
-                "text": "<p>{{ closest.product.description }}</p>",
+                "text": "{{ closest.product.description }}",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
